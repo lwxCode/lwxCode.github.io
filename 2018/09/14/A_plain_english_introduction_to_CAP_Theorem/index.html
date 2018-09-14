@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/9 | 技术博客</title>
+  <title>技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="#A plain english introduction to CAP Theorem ##关于CAP理论的一个简易的介绍 You’ll often hear about the CAP theorem which specifies some kind of an upper limit when designing distributed systems. As with most of m">
+<meta property="og:type" content="article">
 <meta property="og:title" content="技术博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/09/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/09/14/A_plain_english_introduction_to_CAP_Theorem/index.html">
 <meta property="og:site_name" content="技术博客">
+<meta property="og:description" content="#A plain english introduction to CAP Theorem ##关于CAP理论的一个简易的介绍 You’ll often hear about the CAP theorem which specifies some kind of an upper limit when designing distributed systems. As with most of m">
+<meta property="og:updated_time" content="2018-09-14T06:31:07.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技术博客">
+<meta name="twitter:description" content="#A plain english introduction to CAP Theorem ##关于CAP理论的一个简易的介绍 You’ll often hear about the CAP theorem which specifies some kind of an upper limit when designing distributed systems. As with most of m">
   
     <link rel="alternative" href="/atom.xml" title="技术博客" type="application/atom+xml">
   
@@ -145,85 +149,223 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-A_plain_english_introduction_to_CAP_Theorem" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#A plain english introduction to CAP Theorem</p>
+<p>##关于CAP理论的一个简易的介绍</p>
+<p>You’ll often hear about the CAP theorem which specifies some kind of an upper limit when designing distributed systems. As with most of my other introduction tutorials, lets try understanding CAP by comparing it with a real world situation.<br>　　我们经常在设计一个分布式系统时会听说CAP理论表明了某种意义上的上限.那么就像我以前经常使用的那样子,用一个真实世界的情景来帮助你理解CAP理论.</p>
+<h2 id="Chapter-1-“Remembrance-Inc”-Your-new-venture"><a href="#Chapter-1-“Remembrance-Inc”-Your-new-venture" class="headerlink" title="Chapter 1: “Remembrance Inc” Your new venture :"></a>Chapter 1: “Remembrance Inc” Your new venture :</h2><p>Last night when your spouse appreciated you on remembering her birthday and bringing her a gift, a strange Idea strikes you. People are so bad in remembering things. And you’re sooo good at it. So why not start a venture that will put your talent to use? The more you think about it, the more you like it. In fact you even come up with a news paper ad which explains your idea</p>
+<pre><code>Remembrance Inc! - Never forget,  even without remembering!
+Ever felt bad that you forget so much?  Don&apos;t worry. Help is just a phone away!
+When you need to remember something, just call 555--55-REMEM and tell us what you need to remember. 
+For eg., call us and let us know of your boss&apos;s phone. number, and forget to remember it. when you need to know it back.. call back the same number[(555)--55-REMEM ] and we&apos;ll tell you what&apos;s your boss&apos;s phone number.
+Charges : only $0.1 per request
+</code></pre><p>So, your typical phone conversation will look like this:</p>
+<blockquote>
+<ul>
+<li>Customer : Hey, Can you store my neighbor’s birthday?</li>
+<li>You: Sure.. when is it?</li>
+<li>Customer : 2nd of jan</li>
+<li>You: (write it down against the customer’s page in your paper note book )Stored. Call us any time for knowing your neighbor’s birthday again!</li>
+<li>Customer : Thank you!</li>
+<li>You: No problem! We charged your credit card with $0.1</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h2 id="第一章-你的新公司“记忆公司”"><a href="#第一章-你的新公司“记忆公司”" class="headerlink" title="第一章: 你的新公司“记忆公司” :"></a>第一章: 你的新公司“记忆公司” :</h2><p>　　昨晚你的妻子感激你记住了她的生日并送了一个礼物.对此现象,你产生了一个想法:人们总是记不住东西,而你对此却很在行.所以为什么不利用这个天赋开一家新公司呢?这个想法在你的脑海里盘旋了很久,甚至为这个新想法想了一个广告:</p>
+<pre><code>”记忆公司”—永不忘记,所以不用记忆
+为什么总是为忘记东西而愧疚?不用担心,一个电话我们就能帮你!
+如果你需要记住什么,只要拨打555--55-REMEM,然后告诉我们关于你要记的东西.比如告诉我们你老板
+的电话然后就可以忘掉了.当你需要时只需要拨打同样的电话[(555)--55-REMEM ] 询问你老板的信息.
+收费:0.1$每次
+</code></pre><p>　　所以,一个典型的例子会像如下所示 :</p>
+<blockquote>
+<ul>
+<li>顾客 : 你好,你能记下我邻居的生日么?</li>
+<li>你: 当然,是几号?</li>
+<li>顾客 : 1月2号</li>
+<li>你: (在笔记本上这个顾客的页面上写下记录)存好了.你可以随时可以打给我们来知晓你邻居的生日!</li>
+<li>顾客 : 谢谢 !</li>
+<li>你: 不客气.我们会向你的信用卡收费0.1$</li>
+</ul>
+</blockquote>
+<h2 id="Chapter-2-You-scale-up"><a href="#Chapter-2-You-scale-up" class="headerlink" title="Chapter 2 : You scale up:"></a>Chapter 2 : You scale up:</h2><p>Your venture gets funded by YCombinator. Your Idea is so simple, needs nothing but a paper notebook and phone, yet so effective that it spreads like wild fire. You start getting hundreds of call every day.<br>And there starts the problem. You see that more and more of your customers have to wait in the queue to speak to you. Most of them even hang up tired of the waiting tone. Besides when you were sick the other day and could not come to work you lost a whole day of business. Not to mention all those dissatisfied customers who wanted information on that day.<br>You decide it’s time for you to scale up and bring in your wife to help you.<br>Your start with a simple plan:</p>
+<blockquote>
+<ol>
+<li>You and your wife both get an extension phone</li>
+<li>Customers still dial (555)–55-REMEM and need to remember only one number</li>
+<li>A pbx will route the a customers call to whoever is free and equally</li>
+</ol>
+</blockquote>
+<h2 id="第二章-企业扩张"><a href="#第二章-企业扩张" class="headerlink" title="第二章: 企业扩张"></a>第二章: 企业扩张</h2><p>　　你的企业被YCombinator投资了.你的想法如此简单有效,而仅仅只需要一个本子和电话,所以事业就像大火一样飞速发展.你开始能每天接受几百个电话了.<br>　　所以问题跟着来了.你发现越来越多的顾客需要在队列中等待通话,大部分甚至等不下去直接挂了电话.此外要是你生了病那一天的生意就全丢了.跟不用说会恼怒那些要在那一天获取信息的顾客了.<br>　　所以你打算把你的妻子拉过来帮你了.<br>　　你计划了一个简单的计划:</p>
+<blockquote>
+<ol>
+<li>你和你的妻子都用分机电话</li>
+<li>顾客仍然只需要记同一个电话(555)–55-REMEM </li>
+<li>一个交换机会负责将电话平等的转给空闲的人.</li>
+</ol>
+</blockquote>
+<h2 id="Chapter-3-You-have-your-first-“Bad-Service”"><a href="#Chapter-3-You-have-your-first-“Bad-Service”" class="headerlink" title="Chapter 3 : You have your first “Bad Service” :"></a>Chapter 3 : You have your first “Bad Service” :</h2><p>Two days after you implemented the new system, you get a call from you get a call from your trusted customer Jhon. This is how it goes:</p>
+<blockquote>
+<ul>
+<li>Jhon: Hey</li>
+<li>You: Glad you called “Remembrance Inc!”. What can I do for you?</li>
+<li>Jhon: Can you tell me when is my flight to New Delhi?</li>
+<li>You: Sure.. 1 sec sir</li>
+<li>(You look up your notebook)</li>
+<li>(wow! there is no entry for “flight date” in Jhon’s page)!!!!!</li>
+<li>You: Sir, I think there is a mistake. You never told us about your flight to delhi</li>
+<li>Jhon: What! I just called you guys yesterday!(cuts the call!)</li>
+</ul>
+</blockquote>
+<p>　　How did that happen? Could Jhon be lying? You think about it for a second and the reason hits you! Could Jhon’s call yesterday reached your wife? You go to your wife’s desk and check her notebook. Sure enough it’s there. You tell this to your wife and she realizes the problem too.<br>　　What a terrible flaw in your distributed design! Your distributed system is not consistent! There could always be a chance that a customer updates something which goes to either you or your wife and when the next call from the customer is routed to another person there will not be a consistent reply from Remembrance Inc!</p>
+<h2 id="第三章-你的第一次服务失败"><a href="#第三章-你的第一次服务失败" class="headerlink" title="第三章:你的第一次服务失败"></a>第三章:你的第一次服务失败</h2><p>　　在实施你的新系统2周后,你接到一个老顾客Jhon的电话.对话如下:</p>
+<blockquote>
+<ul>
+<li>Jhon: 你好啊!</li>
+<li>You: 欢迎致电记忆公司!有什么可以帮你的?</li>
+<li>Jhon: 你能告诉我飞去新德里的时间么 ?</li>
+<li>You: 当然,请等一下</li>
+<li>(你开始查找你的笔记本)</li>
+<li>(哦!在jhon页 上没发现飞行日期的信息 )!!!!!</li>
+<li>You: 先生我猜你搞错了,你从未告诉过我们你飞去新德里的时间!</li>
+<li>Jhon: 什么!我昨天才告诉你们的!(生气的挂断电话!) </li>
+</ul>
+</blockquote>
+<p>　　发生了什么?难道Jhon撒谎了?你想了一下然后猜到了原因- -难道昨天Jhon打的是你妻子的电话?所以你走到你妻子的桌子边检查起了她的本子.果真,记录在那里.你把这件事告诉了你的妻子,她也认识到了这个问题.<br>　　在分布式系统中这是极其糟糕的瑕疵!你的分布式系统不是一致性的!总会发生你或你的妻子收好信息但是想要获取信息时是另一个人接的,你的记忆公司不能给出一个一致的回复!</p>
+<h2 id="Chapter-4-You-fix-the-Consistency-problem"><a href="#Chapter-4-You-fix-the-Consistency-problem" class="headerlink" title="Chapter 4: You fix the Consistency problem:"></a>Chapter 4: You fix the Consistency problem:</h2><p>　　Well, your competitors may ignore a bad service, but not you. You think all night in the bed when your wife is sleeping and come up with a beautiful plan in the morning. You wake up your wife and tell her:<br><strong><em>“Darling this is what we are going to do from now”</em></strong></p>
+<blockquote>
+<ul>
+<li>Whenever any one of us get a call for an update(when the customer wants us to remember something) before completing the call we tell the other person</li>
+<li>This way both of us note down any updates</li>
+<li>When there is call for search(When the customer wants information he has already stored) we don’t need to talk with the other person. Since both of us have the latest updated information in both of our note books we can just refer to it.   </li>
+</ul>
+</blockquote>
+<p>　　There is only one problem though, you say, and that is an “update” request has to involve both of us and we cannot work in parallel during that time. For eg. when you get an update request and telling me to update too, i cannot take other calls. But that’s okay because most calls we get anyway are “search” (a customer updates once and asks many times) . Besides, we cannot give wrong information at any cost.<br>　　<strong><em>“Neat”</em></strong> your wife says, <strong><em>“but there is one more flaw in this system that you haven’t thought of. What if one of us doesn’t report to work on a particular day? On that day, then, we won’t be able to take “any” Update calls, because the other person cannot be updated! We will have Availability problem , i.e, for eg., if an update request comes to me I will never be able to complete that call because even though I have written the update in my note book, I can never update you. So I can never complete the call!”</em></strong>
+　　</p>
+<h2 id="第四章-修复统一性问题"><a href="#第四章-修复统一性问题" class="headerlink" title="第四章:修复统一性问题:"></a>第四章:修复统一性问题:</h2><p>　　你的竞争对手可能会忽略这次服务失败,但你不会.在你妻子睡着时你躺在床上想了一晚上,终于在凌晨时想到了一个完美的解决方案.所以你赶紧叫醒了你的妻子然后告诉她:<br>　　<strong><em>“亲爱的我终于知道我们应该怎么办了!”</em></strong>  </p>
+<blockquote>
+<ul>
+<li>只要我们任意一个人接到了电话要求记录,再挂短浅我们都必须先把这个告诉给另一个人.</li>
+<li>这样我们就同时记录下所有的变动.</li>
+<li>当顾客要求询问他存在这里的信息时,我们不用在问另一个人,因为我们彼此都有最新更新的记录,所以直接回复就可以了. </li>
+</ul>
+</blockquote>
+<p>　然而这里还有一个问题需要解决.就是在这种情况下记录一个请求要求我们同时都在但是我们不可能每次刚好都在.比如,当你接到一个更新请并告诉我让我更新时,与此同时我就不能接另一个电话.但一般大部分的电话是在要求查询(1个顾客一般更新1次然后基本都是在询问),所以情况不会太差.另外,我们不能给顾客一个错误的回复.<br>　<br>　<strong><em>“好主意”</em></strong> 你的妻子说, <strong><em>“但是还有几个缺陷你没有想到.如果某一天我们之间有一个没有上班怎么办?这样子那一天我们不能更新任何数据因为另一个人的数据更新不了!我们将会有可用性问题,举个例子,一旦我收到一个变动数据的电话我将永远不能结束他,因为即使我能在我的笔记本上记录下这次变动,但是我永远更新不了你的.所以导致我必须一直等下去而不能挂掉电话!”</em></strong>　</p>
+<h2 id="Chapter-5-You-come-up-with-the-greatest-solution-Ever"><a href="#Chapter-5-You-come-up-with-the-greatest-solution-Ever" class="headerlink" title="Chapter 5: You come up with the greatest solution Ever:"></a>Chapter 5: You come up with the greatest solution Ever:</h2><p>　　You being to realize a little bit on why distributed system might not be as easy as you thought at first. Is it that difficult to come up with a solution that could be both “Consistent and Available”? Could be difficult for others, but not for you!! Then next morning you come up with a solution that your competitors cannot think of in their dreams! You wake your wife up eagerly again..<br>　　”look” , you tell her.. “This is what we can do to be consistent and available” . The plan is mostly similar to what I told you yesterday:</p>
+<blockquote>
+<ul>
+<li>i) Whenever any one of us get a call for an update(when the customer wants us to remember something) before completing the call, if the other person is available we tell the other person. This way both of us note down any updates</li>
+<li>ii) But if the other person is not available(doesn’t report to work) we send the other person an email about the update.</li>
+<li>iii) The next day when the other person comes to work after taking a day off, He first goes through all the emails, updates his note book accordingly.. before taking his first call.</li>
+</ul>
+</blockquote>
+<p>　　Genius! You wife says! I can’t find any flaws in this systems. Let’s put it to use.. Remembrance Inc! is now both Consistent and available!</p>
+<h2 id="你想到了有史以来最棒的解决方案"><a href="#你想到了有史以来最棒的解决方案" class="headerlink" title="你想到了有史以来最棒的解决方案:"></a>你想到了有史以来最棒的解决方案:</h2><p> 　　你开始意识到一点–分布式系统可能不像你最开始想的那么简单.难道让系统一致并可用就那么难?</p>
+<h2 id="Chapter-6-Your-wife-gets-angry"><a href="#Chapter-6-Your-wife-gets-angry" class="headerlink" title="Chapter 6: Your wife gets angry :"></a>Chapter 6: Your wife gets angry :</h2><p>　　Everything goes well for a while. Your system is consistent. Your system works well even when one of you doesn’t report to work. But what if Both of you report to work and one of you doesn’t update the other person? Remember all those days you’ve been waking your wife up early with your Greatest-idea-ever-bullshit? <em>  What if your wife decides to take calls but is too angry with you and decides not to update you for a day? Your idea totally breaks! Your idea so far is good for consistency and availability but is not Partition Tolerant!</em><br>　　You can decide to be partition tolerant by deciding not to take any calls until you patch up with your wife.. Then your system will not be “available” during that time…</p>
+<h2 id="Chapter-7-Conclusion"><a href="#Chapter-7-Conclusion" class="headerlink" title="Chapter 7: Conclusion :"></a>Chapter 7: Conclusion :</h2><p>　　So Let’s look at CAP Theorem now. Its states that, when you are designing a distributed system you can get cannot achieve all three of Consistency, Availability and Partition tolerance. You can pick only two of:</p>
+<blockquote>
+<ul>
+<li>Consistency: You customers, once they have updated information with you, will always get the most updated information when they call subsequently. No matter how quickly they call back</li>
+<li>Availability: Remembrance Inc will always be available for calls until any one of you(you or your wife) report to work.</li>
+<li>Partition Tolerance: Remembrance Inc will work even if there is a communication loss between you and your wife!   </li>
+</ul>
+</blockquote>
+<p>##Bonus : Eventual Consistency with a run around clerk :<br>　　Here is another food for thought. You can have a run around clerk, who will update other’s notebook when one of your’s or your wife’s note books is updated. The greatest benefit of this is that, he can work in background and one of your or your wife’s “update” doesn’t have to block, waiting for the other one to update. This is how many NoSql systems work, one node updates itself locally and a background process synchronizes all other nodes accordingly… The only problem is that you will lose consistency of some time. For eg., a customer’s call reaches your wife first and before the clerk has a chance to update your notebook , the customer’ calls back and it reaches you. Then he won’t get a consistent reply.. But that said, this is not at all a bad idea if such cases are limited. For eg., assuming a customer won’t forget things so quickly that he calls back in 5 minutes.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/14/A_plain_english_introduction_to_CAP_Theorem/" class="archive-article-date">
-  	<time datetime="2018-09-14T02:44:16.787Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-14</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/09/14/A_plain_english_introduction_to_CAP_Theorem/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/14/Do+you+really+know+why+you+prefer+REST+over+RPC/" class="archive-article-date">
-  	<time datetime="2018-09-14T01:30:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-14</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/14/Do+you+really+know+why+you+prefer+REST+over+RPC/">Do+you+really+know+why+you+prefer+REST+over+RPC</a>
-    </h1>
+  
+    <a href="/2018/09/14/Do+you+really+know+why+you+prefer+REST+over+RPC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Do+you+really+know+why+you+prefer+REST+over+RPC</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rest</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">rpc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -246,8 +388,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
