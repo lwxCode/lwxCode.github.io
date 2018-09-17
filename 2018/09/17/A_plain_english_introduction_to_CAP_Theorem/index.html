@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>技术博客</title>
+  <title>A plain english introduction to CAP Theorem | 技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="#A plain english introduction to CAP Theorem ##关于CAP理论的一个简易的介绍 You’ll often hear about the CAP theorem which specifies some kind of an upper limit when designing distributed systems. As with most of m">
+<meta name="keywords" content="cap,翻译">
 <meta property="og:type" content="article">
-<meta property="og:title" content="技术博客">
-<meta property="og:url" content="http://yoursite.com/2018/09/14/A_plain_english_introduction_to_CAP_Theorem/index.html">
+<meta property="og:title" content="A plain english introduction to CAP Theorem">
+<meta property="og:url" content="http://yoursite.com/2018/09/17/A_plain_english_introduction_to_CAP_Theorem/index.html">
 <meta property="og:site_name" content="技术博客">
 <meta property="og:description" content="#A plain english introduction to CAP Theorem ##关于CAP理论的一个简易的介绍 You’ll often hear about the CAP theorem which specifies some kind of an upper limit when designing distributed systems. As with most of m">
-<meta property="og:updated_time" content="2018-09-14T06:31:07.729Z">
+<meta property="og:updated_time" content="2018-09-17T11:31:13.008Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="技术博客">
+<meta name="twitter:title" content="A plain english introduction to CAP Theorem">
 <meta name="twitter:description" content="#A plain english introduction to CAP Theorem ##关于CAP理论的一个简易的介绍 You’ll often hear about the CAP theorem which specifies some kind of an upper limit when designing distributed systems. As with most of m">
   
     <link rel="alternative" href="/atom.xml" title="技术博客" type="application/atom+xml">
@@ -152,11 +153,26 @@
             <article id="post-A_plain_english_introduction_to_CAP_Theorem" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      A plain english introduction to CAP Theorem
+    </h1>
+  
+
+        
+        <a href="/2018/09/17/A_plain_english_introduction_to_CAP_Theorem/" class="archive-article-date">
+  	<time datetime="2018-09-17T11:30:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-17</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <p>#A plain english introduction to CAP Theorem</p>
 <p>##关于CAP理论的一个简易的介绍</p>
-<p>You’ll often hear about the CAP theorem which specifies some kind of an upper limit when designing distributed systems. As with most of my other introduction tutorials, lets try understanding CAP by comparing it with a real world situation.<br>　　我们经常在设计一个分布式系统时会听说CAP理论表明了某种意义上的上限.那么就像我以前经常使用的那样子,用一个真实世界的情景来帮助你理解CAP理论.</p>
+<p>You’ll often hear about the CAP theorem which specifies some kind of an upper limit when designing distributed systems. As with most of my other introduction tutorials, lets try understanding CAP by comparing it with a real world situation.<br>　　我们经常在设计一个分布式系统时会听说CAP理论表明了某种意义上的上限.那么就像我以前经常使用的那样,我会模拟一个真实世界的情景来帮助你理解CAP理论.</p>
 <h2 id="Chapter-1-“Remembrance-Inc”-Your-new-venture"><a href="#Chapter-1-“Remembrance-Inc”-Your-new-venture" class="headerlink" title="Chapter 1: “Remembrance Inc” Your new venture :"></a>Chapter 1: “Remembrance Inc” Your new venture :</h2><p>Last night when your spouse appreciated you on remembering her birthday and bringing her a gift, a strange Idea strikes you. People are so bad in remembering things. And you’re sooo good at it. So why not start a venture that will put your talent to use? The more you think about it, the more you like it. In fact you even come up with a news paper ad which explains your idea</p>
 <pre><code>Remembrance Inc! - Never forget,  even without remembering!
 Ever felt bad that you forget so much?  Don&apos;t worry. Help is just a phone away!
@@ -249,7 +265,7 @@ Charges : only $0.1 per request
 <h2 id="第四章-修复统一性问题"><a href="#第四章-修复统一性问题" class="headerlink" title="第四章:修复统一性问题:"></a>第四章:修复统一性问题:</h2><p>　　你的竞争对手可能会忽略这次服务失败,但你不会.在你妻子睡着时你躺在床上想了一晚上,终于在凌晨时想到了一个完美的解决方案.所以你赶紧叫醒了你的妻子然后告诉她:<br>　　<strong><em>“亲爱的我终于知道我们应该怎么办了!”</em></strong>  </p>
 <blockquote>
 <ul>
-<li>只要我们任意一个人接到了电话要求记录,再挂短浅我们都必须先把这个告诉给另一个人.</li>
+<li>只要我们任意一个人接到了电话要求记录,再挂断之前我们都必须先把这个告诉给另一个人.</li>
 <li>这样我们就同时记录下所有的变动.</li>
 <li>当顾客要求询问他存在这里的信息时,我们不用在问另一个人,因为我们彼此都有最新更新的记录,所以直接回复就可以了. </li>
 </ul>
@@ -264,8 +280,18 @@ Charges : only $0.1 per request
 </ul>
 </blockquote>
 <p>　　Genius! You wife says! I can’t find any flaws in this systems. Let’s put it to use.. Remembrance Inc! is now both Consistent and available!</p>
-<h2 id="你想到了有史以来最棒的解决方案"><a href="#你想到了有史以来最棒的解决方案" class="headerlink" title="你想到了有史以来最棒的解决方案:"></a>你想到了有史以来最棒的解决方案:</h2><p> 　　你开始意识到一点–分布式系统可能不像你最开始想的那么简单.难道让系统一致并可用就那么难?</p>
-<h2 id="Chapter-6-Your-wife-gets-angry"><a href="#Chapter-6-Your-wife-gets-angry" class="headerlink" title="Chapter 6: Your wife gets angry :"></a>Chapter 6: Your wife gets angry :</h2><p>　　Everything goes well for a while. Your system is consistent. Your system works well even when one of you doesn’t report to work. But what if Both of you report to work and one of you doesn’t update the other person? Remember all those days you’ve been waking your wife up early with your Greatest-idea-ever-bullshit? <em>  What if your wife decides to take calls but is too angry with you and decides not to update you for a day? Your idea totally breaks! Your idea so far is good for consistency and availability but is not Partition Tolerant!</em><br>　　You can decide to be partition tolerant by deciding not to take any calls until you patch up with your wife.. Then your system will not be “available” during that time…</p>
+<h2 id="第五章-你想到了有史以来最棒的解决方案"><a href="#第五章-你想到了有史以来最棒的解决方案" class="headerlink" title="第五章:你想到了有史以来最棒的解决方案:"></a>第五章:你想到了有史以来最棒的解决方案:</h2><p> 　　你开始意识到一点–分布式系统可能不像你最开始想的那么简单.难道让系统一致并可用就那么难?虽然对于其他人来说很难,但你可是个天才!在其他竞争对手甚至没法在梦中思考时你已在第二天早晨想出了一个解决方案.所以你再次叫醒了你的妻子..<br> 　　“你看”,你告诉她..”只要按照下面这个计划我们就能够保持一致性与可用性”.这个计划跟昨天想的基本差不多:</p>
+<blockquote>
+<ul>
+<li>i) 只要我们任意一个人接到了电话要求记录(客户想要我们记下什么),在挂断之前,如果另一个人在就把这个信息同步给另一个人.在这种情形下我们都会记录下所有的变动.</li>
+<li>ii) 但是如果另一个人不能联系到(没有回复信息).我们将这个变动通过邮件通知给他.</li>
+<li>iii) 当接下来另一个人回来工作室,他先要在接电话之前获取所有的邮件并记录到笔记本上.　</li>
+</ul>
+</blockquote>
+<h2 id="Chapter-6-Your-wife-gets-angry"><a href="#Chapter-6-Your-wife-gets-angry" class="headerlink" title="Chapter 6: Your wife gets angry :"></a>Chapter 6: Your wife gets angry :</h2><p>　　Everything goes well for a while. Your system is consistent. Your system works well even when one of you doesn’t report to work. But what if Both of you report to work and one of you doesn’t update the other person? Remember all those days you’ve been waking your wife up early with your Greatest-idea-ever-bullshit? <em>  What if your wife decides to take calls but is too angry with you and decides not to update you for a day? Your idea totally breaks! Your idea so far is good for consistency and availability but is not Partition Tolerant!</em><br>　　You can decide to be partition tolerant by deciding not to take any calls until you patch up with your wife.. Then your system will not be “available” during that time…
+　　</p>
+<h2 id="第六章-你的妻子怒了"><a href="#第六章-你的妻子怒了" class="headerlink" title="第六章:你的妻子怒了:"></a>第六章:你的妻子怒了:</h2><p>　　所有的事在最开始总是好的.你的系统又开始有一致性了.即使另一个人不在,系统也能够很好地运行.但是如果你们都上班了但是有一方没有将变更报告给另一方?记住最近你经常用你”最棒的点子”把你妻子叫醒? 如果你的妻子因为太生气那一天接了电话但是不告诉你怎么办?你的主意完全被破坏了!你的计划到目前为止保证了一致性和可用性但是不能保证分区容错性!<br>　　你能决定要保证分区容错性所以不接电话直到安抚了你的妻子.但是这会导致那一段时间内系统的可用性不能被保证.
+　　 </p>
 <h2 id="Chapter-7-Conclusion"><a href="#Chapter-7-Conclusion" class="headerlink" title="Chapter 7: Conclusion :"></a>Chapter 7: Conclusion :</h2><p>　　So Let’s look at CAP Theorem now. Its states that, when you are designing a distributed system you can get cannot achieve all three of Consistency, Availability and Partition tolerance. You can pick only two of:</p>
 <blockquote>
 <ul>
@@ -274,7 +300,18 @@ Charges : only $0.1 per request
 <li>Partition Tolerance: Remembrance Inc will work even if there is a communication loss between you and your wife!   </li>
 </ul>
 </blockquote>
-<p>##Bonus : Eventual Consistency with a run around clerk :<br>　　Here is another food for thought. You can have a run around clerk, who will update other’s notebook when one of your’s or your wife’s note books is updated. The greatest benefit of this is that, he can work in background and one of your or your wife’s “update” doesn’t have to block, waiting for the other one to update. This is how many NoSql systems work, one node updates itself locally and a background process synchronizes all other nodes accordingly… The only problem is that you will lose consistency of some time. For eg., a customer’s call reaches your wife first and before the clerk has a chance to update your notebook , the customer’ calls back and it reaches you. Then he won’t get a consistent reply.. But that said, this is not at all a bad idea if such cases are limited. For eg., assuming a customer won’t forget things so quickly that he calls back in 5 minutes.</p>
+<h2 id="第七章-结论"><a href="#第七章-结论" class="headerlink" title="第七章:结论:"></a>第七章:结论:</h2><p> 　　所以让我们再来看看CAP理论.它的问题在于当你要设计一个分布式系统时,你不可能同时保持一致性,可用性与分区容错性.你只能同时保持其中2点:  </p>
+<blockquote>
+<ul>
+<li>一致性:你的顾客,只要更新过了信息,就必须能够保证随后获取到最新的变更.而不必考虑他们会在什么时间请求.</li>
+<li>可用性:只要你或者你的妻子上班了,那么记忆公司一定会是可用的.</li>
+<li>分区容错性:即使你和你的妻子没有沟通到,记忆公司也能够保证运行下去.</li>
+</ul>
+</blockquote>
+<p>##Bonus : Eventual Consistency with a run around clerk :<br>　　Here is another food for thought. You can have a run around clerk, who will update other’s notebook when one of your’s or your wife’s note books is updated. The greatest benefit of this is that, he can work in background and one of your or your wife’s “update” doesn’t have to block, waiting for the other one to update. This is how many NoSql systems work, one node updates itself locally and a background process synchronizes all other nodes accordingly… The only problem is that you will lose consistency of some time. For eg., a customer’s call reaches your wife first and before the clerk has a chance to update your notebook , the customer’ calls back and it reaches you. Then he won’t get a consistent reply.. But that said, this is not at all a bad idea if such cases are limited. For eg., assuming a customer won’t forget things so quickly that he calls back in 5 minutes.
+　　</p>
+<h2 id="奖励：通过一个跑堂的员工解决最终一致性"><a href="#奖励：通过一个跑堂的员工解决最终一致性" class="headerlink" title="奖励：通过一个跑堂的员工解决最终一致性"></a>奖励：通过一个跑堂的员工解决最终一致性</h2><p>　　还有一件可以深思的事情.你可以请一个跑堂的员工,通过他来更新你的笔记本或者你妻子的笔记本.这个最大的好处在于他可以在后台工作而你和你的妻子不必停在那里等另一个人更新. 这是现在大多数的nosql系统所使用的.一个节点在本地更新了数据,另一个后台线程相应地负责将数据同步到其他节点.唯一的问题在于有时你会丢失一致性.举个例子,一个顾客的电话先打给了你的妻子.然后再员工有机会去更新你的笔记本时他马上打了电话给你.所以她将得不到一个一致性的回复.但即便如此，在某些限定情况下倒也不算是个坏主意。例如，假定一个客户不会这么快忘记,最少也要5分钟后才会再来电.<br>　　<br>　　That’s CAP and eventual consistency for you in simple english :)</p>
+<p>　　这就是给您的CAP理论和最终一致性的极简解释：）</p>
 
       
 
@@ -283,6 +320,21 @@ Charges : only $0.1 per request
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cap</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -333,7 +385,7 @@ Charges : only $0.1 per request
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/09/14/A_plain_english_introduction_to_CAP_Theorem/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/09/17/A_plain_english_introduction_to_CAP_Theorem/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -487,6 +539,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rpc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
             
             <div class="clearfix"></div>
